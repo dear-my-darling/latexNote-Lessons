@@ -994,4 +994,119 @@ LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 3
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 )
-LaTeX Font Info:    Font
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 17.28183pt on input line 38.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00107pt on input line 38.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 17.27815pt on input line 38.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 38.
+ [1
+
+
+
+
+]) [1
+
+]
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [1
+
+])
+\openout2 = `chap0/chap1.aux'.
+
+ (./chap0/chap1.tex
+第零章
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 12.00128pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 8.40088pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 6.00064pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 11.99872pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 8.3991pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 5.99936pt on input line 4.
+[1
+
+
+
+
+]
+LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not available
+(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on input line 119.
+ [2] [3] [4] [5] [6] [7] [8] [9]
+
+LaTeX Warning: Reference `1.1' on page 10 undefined on input line 453.
+
+[10] [11] [12]
+
+LaTeX Warning: Reference `1.2' on page 13 undefined on input line 618.
+
+) [13]
+\openout2 = `chap0/chap2.aux'.
+
+ (./chap0/chap2.tex
+第一章
+Missing character: There is no 𝛹 (U+1D6F9) in font [lmroman12-bold]:mapping=tex-text;!
+[14
+
+
+
+
+] [15] [16] [17] [18]
+Missing character: There is no 𝜎 (U+1D70E) in font [lmroman8-bold]:mapping=tex-text;!
+[19] [20]
+./chap0/chap2.tex:447: Undefined control sequence.
+<recently read> \oemga 
+                       
+l.447 $\oemga
+             _\sigma = 0$，那么，相应的声子频带称为声频支，相应的格波称为声学模；反之，如果 $\mathbf{k}= 0$时,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chap0/chap2.tex:448: Undefined control sequence.
+<recently read> \oemga 
+                       
+l.448 $\oemga
+             _\sigma > 0$，相应的声子频带称为光频支，相应的格波称为光学模。
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [21] (./main.aux (./config/cover.aux) (./chap0/chap1.aux) (./chap0/chap2.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  6814E4E36F1CBD02A97B57B97878C674;2304.
+ ) 
+Here is how much of TeX's memory you used:
+ 23058 strings out of 476191
+ 454250 string characters out of 5812072
+ 1946832 words of memory out of 5000000
+ 43410 multiletter control sequences out of 15000+600000
+ 480387 words of font info for 108 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 89i,17n,115p,1298b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.pdf (24 pages).

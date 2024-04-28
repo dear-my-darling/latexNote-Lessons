@@ -1,0 +1,22 @@
+\contentsline {chapter}{\numberline {第零章\hspace {.3em}}周期性结构}{1}{chapter.0}%
+\contentsline {section}{\numberline {0.1}正空间和倒空间}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}仿射坐标系}{1}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}欧式空间与度量系数}{1}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {0.1.3}倒易基底}{3}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}逆变矢量与协变矢量}{5}{subsection.0.1.4}%
+\contentsline {section}{\numberline {0.2}正格矢与倒格矢}{6}{section.0.2}%
+\contentsline {section}{\numberline {0.3}平移对称性}{7}{section.0.3}%
+\contentsline {subsection}{\numberline {0.3.1}晶体的平移对称性}{8}{subsection.0.3.1}%
+\contentsline {section}{\numberline {0.4}Bloch定理}{8}{section.0.4}%
+\contentsline {subsection}{\numberline {0.4.1}求本征方程}{11}{subsection.0.4.1}%
+\contentsline {section}{\numberline {0.5}Dirac Comb}{12}{section.0.5}%
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}声子}{14}{chapter.1}%
+\contentsline {section}{\numberline {1.1}声场量子化}{14}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}模型}{14}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}傅里叶变换}{15}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}幺正变换}{17}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Dirac变换}{18}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}声子气体的热性质}{20}{section.1.2}%
+\contentsline {section}{\numberline {1.3}长波方法---声学模}{21}{section.1.3}%
+\contentsline {section}{\numberline {1.4}长波方法---光学模}{21}{section.1.4}%
+\contentsline {section}{\numberline {1.5}态密度与范霍夫奇点}{21}{section.1.5}%
