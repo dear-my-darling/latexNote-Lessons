@@ -1,0 +1,452 @@
+\chapter{声子}
+第二章就是声子了，感觉内容很多，数学运算也很多。感觉对于这样的内容如果只是简单的几个笔记，学习一遍，那我认为肯定是不会学的很懂。但如果不这么做，我肯定更不懂。我想表达的是，慢慢来，别太急，
+我觉得你现在开始整理笔记，并努力在执行费曼学习法，这点已经超越之前的自己很多了。但考虑到学习过程中有许多问题可能一下没有转过来，或者有些疑问，我想要记录下来，如果以后有一天我还记得现在
+做的笔记，并且有耐心慢慢的读，而且有时间的话，我希望未来的我能够解决这些问题。也不一定是多久以后，也许明天，也许下周？
+\section{声场量子化}
+这一节的目的就是一步到位把声场给量子化了。不多废话。
+\subsection{模型}
+我们讨论简单晶格，每个元胞只有一个原子或离子，它在平衡位置附近做微小震荡
+\begin{equation}
+    \begin{aligned} 
+    \mathbf{X}_\mathbf{l} =\mathbf{R_l}  + \mathbf{u_l}(t)  
+    \end{aligned} 
+\end{equation}
+其中， $ \mathbf{R_l}   $ 是平衡位置， 而 $ \mathbf{u_l} $ 是对平衡位置的微小偏离。
+\begin{equation}
+    \begin{aligned} 
+    \mathbf{R_l} &= \sum_{\nu = 1}^3 l_\nu \mathbf{a}_\nu \\
+    \mathbf{u_l} &= \sum_{\nu = 1}^3 u_\mathbf{l}^\nu   \mathbf{a}_\nu 
+    \end{aligned} 
+\end{equation}
+所以说
+在小振动问题上，做简谐近似，即将系统的势能 $ \mathbf{\Psi}  $ 对小偏离作 Taylor 展开，并且只
+保留到二届项：
+\begin{equation}
+    \begin{aligned} 
+    \Phi = \Phi_0 + \sum_{\mathbf{l},\alpha }\Phi_\alpha (\mathbf{l}) u_\mathbf{l}^\alpha 
+    + \frac{1}{2} \sum_{\mathbf{l},\alpha }\sum_{\mathbf{l'},\beta}\Phi_{\alpha \beta} 
+    (\mathbf{l,l'} )u_\mathbf{l}^\alpha u_\mathbf{l'}^\beta 
+    \end{aligned} 
+\end{equation}
+一方面，可以通过选取能量零点，使 $ \Phi_0 =0 $ ; 令一方面，在平衡位置晶体势能取极小值， $ \Phi_\alpha 
+(\mathbf{l})  = \frac{\partial \Phi}{\partial u_\mathbf{l}^\alpha }|_0 = 0 $ 。此外，考虑晶体
+的平移对称性
+\begin{equation}
+    \begin{aligned} 
+    \Phi_{\alpha \beta} (\mathbf{l,l'} ) = \Phi_{\alpha \beta}(\mathbf{l - l'} ) = 
+    \Phi_{\beta \alpha} (\mathbf{l' - l} ) = \Phi_{\beta \alpha}(\mathbf{l',l} )
+    \end{aligned} 
+\end{equation}
+最后，在简谐近似条件下，晶格振动系统的势能化简为
+\begin{equation}
+    \begin{aligned} 
+        \Phi = \frac{1}{2} \sum_{\mathbf{l},\alpha }\sum_{\mathbf{l'},\beta}\Phi_{\alpha \beta} 
+        (\mathbf{l-l'} )u_\mathbf{l}^\alpha u_\mathbf{l'}^\beta 
+    \end{aligned} 
+\end{equation}
+\par 于是，系统的哈密顿量为
+\begin{equation}
+    \begin{aligned} 
+    H = \frac{1}{2m}\sum_{\mathbf{l},\alpha}p_\mathbf{l}^\alpha  p_\mathbf{l}^\alpha   + 
+    \frac{1}{2}\sum_{\mathbf{l},\alpha }\sum_{\mathbf{l'},\beta } \Phi_{\alpha \beta} 
+    (\mathbf{l-l'} )u_\mathbf{l}^\alpha u_\mathbf{l'}^\beta 
+    \end{aligned} 
+\end{equation}
+为了处理方便，做如下变换
+\begin{equation}
+    \begin{aligned} 
+    u_\mathbf{l}^\alpha \rightarrow \tilde{u}_\mathbf{l}^\alpha = \sqrt{m} u_\mathbf{l}^\alpha \\
+    p_\mathbf{l}^\alpha \rightarrow \tilde{p}_\mathbf{l}^\alpha = \sqrt{m} p_\mathbf{l}^\alpha
+    \end{aligned} 
+\end{equation}
+变换后哈密顿量变为
+\begin{equation}
+    \begin{aligned} 
+        H = \frac{1}{2}\sum_{\mathbf{l},\alpha}p_\mathbf{l}^\alpha  p_\mathbf{l}^\alpha   + 
+    \frac{1}{2m}\sum_{\mathbf{l},\alpha }\sum_{\mathbf{l'},\beta } \Phi_{\alpha \beta} 
+    (\mathbf{l-l'} )u_\mathbf{l}^\alpha u_\mathbf{l'}^\beta 
+    \label{chap1-1}
+    \end{aligned} 
+\end{equation}
+这里值得一提的是，对 $ \mathbf{l}  $ 求和表示对于晶格的所有格点求和。对 $ \alpha \in {1,2,3} $ 求和则是
+对正则坐标的三个方向求和。这样总的求和就有 $ 3N $ 个了。
+\subsection{傅里叶变换}
+也许是方便求和吧，所以要作傅里叶变换。因为作了变换后能算出个结果来。傅里叶变换如下
+\begin{equation}
+    \begin{aligned} 
+    u_\mathbf{l}^\alpha = \frac{1}{\sqrt{N}} \sum_\mathbf{k} Q_{\mathbf{k}\alpha} e^{i \mathbf{k\cdot l}} \\
+    p_\mathbf{l}^\alpha = \frac{1}{\sqrt{N}} \sum_\mathbf{k} P_{\mathbf{k}\alpha} e^{i \mathbf{k\cdot l}} \\ 
+    \end{aligned} 
+\end{equation}
+由傅里叶变换的数学知识，系数表达式如下
+\begin{equation}
+    \begin{aligned} 
+    Q_{\mathbf{k} \alpha } = \frac{1}{\sqrt{N}} \sum_\mathbf{l} u_\mathbf{l}^\alpha e^{-i \mathbf{k\cdot l} } \\  
+    P_{\mathbf{k} \alpha } = \frac{1}{\sqrt{N}} \sum_\mathbf{l} p_\mathbf{l}^\alpha e^{i \mathbf{k\cdot l} } 
+    \end{aligned} 
+\end{equation}
+\par 在量子力学中 $u_\mathbf{l}^alpha, p_\mathbf{l}^\alpha$都是厄米算符(textcolor{red}{这里由于
+我比较懒，和参考资料的原因，没有打上标，就理解成算符吧})，满足
+\begin{equation}
+    \begin{aligned} 
+    (u_\mathbf{l}^\alpha )^\dagger = u_\mathbf{l}^\alpha \\
+    (p_\mathbf{l}^\alpha )^\dagger = p_\mathbf{l}^\alpha
+    \end{aligned} 
+\end{equation}  
+再根据 $Q_{\mathbf{k}\alpha },P_{\mathbf{k} \alpha }$的定义，两边取共轭，就可以得到新的坐标和动量
+满足
+\begin{equation}
+    \begin{aligned} 
+    Q_{\mathbf{k}\alpha }^\dagger = Q_{-\mathbf{k}alpha } \\
+    P_{\mathbf{k}\alpha }^\dagger = P_{-\mathbf{k}alpha }
+    \end{aligned} 
+\end{equation}
+在 Fourier 变换下，哈密顿量的动能项
+\begin{equation}
+    \begin{aligned} 
+    T &= \frac{1}{2}\sum_{\mathbf{l},\alpha}p_\mathbf{l}^\alpha  p_\mathbf{l}^\alpha  \\
+      &= \frac{1}{2}\sum_\mathbf{k}\sum_\alpha  P_{\mathbf{k}\alpha }^\dagger P_{\mathbf{k}\alpha }
+    \end{aligned} 
+\end{equation}
+具体计算从略，如果不懂，可以再推一遍，这里面有个求和我认为值得注意一下
+\begin{equation}
+    \begin{aligned} 
+    \frac{1}{N} \sum_\mathbf{l} e^{-i(\mathbf{k} + \mathbf{k'})\cdot \mathbf{l}} = \delta_{\mathbf{k',-k} } 
+    \end{aligned} 
+\end{equation}
+\par 接下来是势能项
+\begin{equation}
+    \begin{aligned} 
+    \Phi &= \frac{1}{2} \sum_{\mathbf{l},\alpha }\sum_{\mathbf{l'},\beta}\Phi_{\alpha \beta} 
+    (\mathbf{l,l'} )u_\mathbf{l}^\alpha u_\mathbf{l'}^\beta \\
+    &= \frac{1}{2m} \sum_\mathbf{k}\sum_{\alpha,\beta} Q_{\mathbf{k}\alpha }Q_{\mathbf{-k}\beta }
+    \sum_{\mathbf{l} }\Phi_{\alpha \beta} e^{i \mathbf{k\cdot l} }\\
+    &= \frac{1}{2} \sum_\mathbf{k}\sum_{\alpha,\beta} Q_{\mathbf{k}\alpha }Q_{\mathbf{-k}\beta }
+    D_{\alpha \beta} (-\mathbf{k} ) \\
+    &= \frac{1}{2}\sum_\mathbf{k}\sum_{\alpha,\beta} D_{\alpha \beta} (\mathbf{k} ) Q_{\mathbf{k}\alpha }^\dagger
+    Q_{\mathbf{k}\alpha }
+    \end{aligned} 
+\end{equation}
+其中 
+\begin{equation}
+    \begin{aligned} 
+        D_{\alpha \beta} (\mathbf{k} ) = \frac{1}{m}\Phi_{\alpha \beta} (\mathbf{l} )e^{-i \mathbf{k\cdot l} }
+    \end{aligned} 
+\end{equation}
+这样子，我们就得到了动量空间的哈密顿量表达式了
+\begin{equation}
+    \begin{aligned} 
+    H = \frac{1}{2}\sum_\mathbf{k}\left[\sum_\alpha  P_{\mathbf{k}\alpha }^\dagger P_{\mathbf{k}\alpha } +  \sum_{\alpha,\beta} D_{\alpha \beta} (\mathbf{k} ) Q_{\mathbf{k}\alpha }^\dagger
+    Q_{\mathbf{k}\alpha }\right] 
+    \end{aligned} 
+\end{equation}
+其中,
+\begin{equation}
+    \begin{aligned} 
+        P_{\mathbf{k}\alpha }^\dagger  &= P_{\mathbf{-k}\alpha } \\
+        Q_{\mathbf{k}\alpha }^\dagger  &= Q_{-\mathbf{k}\alpha } \\
+        D_{\alpha \beta} (\mathbf{k} ) &= \frac{1}{m}\Phi_{\alpha \beta} (\mathbf{l} )e^{-i \mathbf{k\cdot l} }
+    \end{aligned} 
+\end{equation}
+\subsection{幺正变换}
+系统哈密顿量
+\begin{equation}
+    \begin{aligned} 
+    H &= \frac{1}{2}\sum_\mathbf{k}\left[\sum_\alpha  P_{\mathbf{k}\alpha }^\dagger P_{\mathbf{k}\alpha } +  \sum_{\alpha,\beta} D_{\alpha \beta} (\mathbf{k} ) Q_{\mathbf{k}\alpha }^\dagger
+    Q_{\mathbf{k}\alpha }\right] 
+     &= \frac{1}{2} \sum_\mathbf{k} h_\mathbf{k} 
+    \end{aligned} 
+\end{equation}
+其中
+\begin{equation}
+    \begin{aligned} 
+    h_\mathbf{k}  &= \sum_\alpha  P_{\mathbf{k}\alpha }^\dagger P_{\mathbf{k}\alpha } +  \sum_{\alpha,\beta} D_{\alpha \beta} (\mathbf{k} ) Q_{\mathbf{k}\alpha }^\dagger
+    Q_{\mathbf{k}\alpha } \\
+    &= \left(\begin{array}{ccc}
+          P_{\mathbf{k}1}^\dagger  & P_{\mathbf{k}2}^\dagger  &P_{\mathbf{k}3}^\dagger 
+    \end{array}\right) \left(\begin{array}{c}
+        P_{\mathbf{k}1} \\
+        P_{\mathbf{k}2} \\
+        P_{\mathbf{k}3}
+          \end{array}\right)+ \left(\begin{array}{ccc}
+            Q_{\mathbf{k}1}^\dagger  & Q_{\mathbf{k}2}^\dagger  &Q_{\mathbf{k}3}^\dagger 
+      \end{array}\right) D(\mathbf{k} )\left(\begin{array}{c}
+          Q_{\mathbf{k}1} \\
+          Q_{\mathbf{k}2} \\
+          Q_{\mathbf{k}3}
+            \end{array}\right)
+    \end{aligned}
+\end{equation}
+插入单位元 $ I = U(\mathbf{k})U^\dagger (\mathbf{k}) $，其中幺正算符可以使动力学矩阵$D(\mathbf{k} )$变成
+对角矩阵的形式，即
+\begin{equation}
+    \begin{aligned} 
+        U^\dagger (\mathbf{k})D(\mathbf{k} )U(\mathbf{k}) = \left(\begin{array}{ccc}
+            \lambda_{\mathbf{k}1 } &  0 & 0 \\
+            0 & \lambda_{\mathbf{k}2 }  & 0 \\
+            0 & 0 & \lambda_{\mathbf{k}3 } 
+              \end{array}\right)
+    \end{aligned} 
+\end{equation} 
+同时，我们记
+\begin{equation}
+    \begin{aligned} 
+    \left(\begin{array}{c}
+         q_{\mathbf{k}1 } \\
+         q_{\mathbf{k}2 } \\
+         q_{\mathbf{k}3 } 
+         \end{array}\right) = U^\dagger (\mathbf{k} ) \left(\begin{array}{c}
+            Q_{\mathbf{k}1 } \\
+            Q_{\mathbf{k}2 } \\
+            Q_{\mathbf{k}3 } 
+            \end{array}\right) \\
+            \left(\begin{array}{c}
+                p_{\mathbf{k}1 } \\
+                p_{\mathbf{k}2 } \\
+                p_{\mathbf{k}3 } 
+                \end{array}\right) = U^\dagger (\mathbf{k} ) \left(\begin{array}{c}
+                   P_{\mathbf{k}1 } \\
+                   P_{\mathbf{k}2 } \\
+                   P_{\mathbf{k}3 } 
+                   \end{array}\right)
+    \end{aligned}  
+\end{equation}
+经过上述幺正变换后，就有
+\begin{equation}
+    \begin{aligned} 
+    h_\mathbf{k} &=  \left(\begin{array}{ccc}
+        p_{\mathbf{k}1}^\dagger  & p_{\mathbf{k}2}^\dagger  &p_{\mathbf{k}3}^\dagger 
+  \end{array}\right) \left(\begin{array}{c}
+      p_{\mathbf{k}1} \\
+      p_{\mathbf{k}2} \\
+      p_{\mathbf{k}3}
+        \end{array}\right)+ \left(\begin{array}{ccc}
+          q_{\mathbf{k}1}^\dagger  & q_{\mathbf{k}2}^\dagger  &q_{\mathbf{k}3}^\dagger 
+    \end{array}\right) \left(\begin{array}{ccc}
+        \lambda_{\mathbf{k}1 } &  0 & 0 \\
+        0 & \lambda_{\mathbf{k}2 }  & 0 \\
+        0 & 0 & \lambda_{\mathbf{k}3 } 
+          \end{array}\right)
+    \left(\begin{array}{c}
+        q_{\mathbf{k}1} \\
+        q_{\mathbf{k}2} \\
+        q_{\mathbf{k}3}
+          \end{array}\right) \\
+          &= \sum_{\sigma = 1}^3 p^\dagger_{\mathbf{k}\sigma }p_{\mathbf{k}\sigma }
+           + \sum_{\sigma = 1}^3 \lambda_{\mathbf{k}\sigma }q_{\mathbf{k}\sigma }^\dagger q_{\mathbf{k}\sigma }
+    \end{aligned} 
+\end{equation}
+因此，系统的哈密顿量就化为
+\begin{equation}
+    \begin{aligned} 
+    H &= \frac{1}{2} \sum_\mathbf{k} h_\mathbf{k} \\ 
+    &= \frac{1}{2}\sum_{\mathbf{k}\sigma } p^\dagger_{\mathbf{k}\sigma }p_{\mathbf{k}\sigma }
+    +\frac{1}{2} \sum_{\mathbf{k}\sigma} \lambda_{\mathbf{k}\sigma }q_{\mathbf{k}\sigma }^\dagger q_{\mathbf{k}\sigma }
+    \end{aligned} 
+\end{equation}
+其中，
+\begin{equation}
+    \begin{aligned} 
+    \lambda_{\mathbf{k}\sigma } \ge 0, \quad \sigma = 1,2,3
+    \end{aligned} 
+\end{equation}
+可以验证，但我现在懒得验证。经过前面这么一大串变换后得到的坐标和动量算符仍然满足坐标与动量的对易关系，即
+\begin{equation}
+    \begin{aligned} 
+    \relax [q_{\mathbf{k}\sigma },q_{\mathbf{k'}\sigma' }] = [p_{\mathbf{k}\sigma },p_{\mathbf{k'}\sigma' }] = 0
+    \quad [q_{\mathbf{k}\sigma },p_{\mathbf{k'}\sigma }] =\delta_{\mathbf{kk'} }\delta_{\sigma \sigma '}
+    \end{aligned} 
+\end{equation}
+\subsection{Dirac变换}
+现在，我们来求解运动方程.
+\par 由之前的对易关系和哈密顿量表达式，可以得到
+\begin{equation}
+    \begin{aligned} 
+    \relax [q_{\mathbf{k}\sigma, H }] &= \frac{1}{2} \sum_{\mathbf{k'}\sigma' }[q_{\mathbf{k}\sigma}
+    ,p^\dagger_{\mathbf{k}\sigma}p_{\mathbf{k}\sigma}] \\
+    &= q_{\mathbf{-k}\sigma} 
+    \end{aligned} 
+\end{equation}
+以及
+\begin{equation}
+    \begin{aligned} 
+        \relax [p_{\mathbf{k}\sigma, H }] &=  \frac{1}{2} \sum_{\mathbf{k'}\sigma' } \lambda_{\mathbf{k'}\sigma' }
+        [p_{\mathbf{k}\sigma},q^\dagger_{\mathbf{k'}\sigma'}q_{\mathbf{k'}\sigma'}]\\
+        &= -\lambda_{\mathbf{k}\sigma }q_{\mathbf{k}\sigma} 
+    \end{aligned} 
+\end{equation}
+其中这里应该是用了 $ \lambda_{\mathbf{-k}\sigma} = \lambda_{\mathbf{k}\sigma} $。将上面的计算结果
+带入海森堡运动方程，有
+\begin{equation}
+    \begin{aligned} 
+    \frac{d}{dt} q_{\mathbf{k}\sigma} = p_{\mathbf{k}\sigma} \\
+    \frac{d}{dt} p_{\mathbf{k}\sigma} = -\lambda_{\mathbf{k}\sigma }q_{\mathbf{k}\sigma} 
+    \end{aligned} 
+\end{equation}
+其中令 $ \frac{1}{i\hbar} = 1 $ 。联立上面两式得到
+\begin{equation}
+    \begin{aligned} 
+    \ddot{q}_{\mathbf{k}\sigma } + \lambda_{\mathbf{k}\sigma }q_{\mathbf{k}\sigma}  = 0
+    \end{aligned} 
+\end{equation}
+解得
+\begin{equation}
+    \begin{aligned} 
+        q_{\mathbf{k}\sigma}(t) = a_{\mathbf{k}\sigma}e^{-i\omega_\sigma (\mathbf{k} )t}
+        + b_{\mathbf{k}\sigma}e^{i\omega_\sigma (\mathbf{k} )t}
+    \end{aligned} 
+\end{equation}
+其中 
+\begin{equation}
+    \begin{aligned} 
+        \omega_\sigma (\mathbf{k} ) = \sqrt{\lambda_{\mathbf{k}\sigma }}
+    \end{aligned} 
+\end{equation}
+注意到 $  q^\dagger_{\mathbf{k}\sigma}(t) = q_{\mathbf{-k}\sigma}(t)$，于是联立后有
+\begin{equation}
+    \begin{aligned} 
+        a^\dagger_{\mathbf{k}\sigma}e^{i\omega_\sigma (\mathbf{k} )t}
+        + b^\dagger_{\mathbf{k}\sigma}e^{-i\omega_\sigma (\mathbf{k} )t} =
+        a_{\mathbf{k}\sigma}e^{-i\omega_\sigma (\mathbf{k} )t}
+        + b_{\mathbf{k}\sigma}e^{i\omega_\sigma (\mathbf{k} )t}
+    \end{aligned} 
+\end{equation}
+分别令 $ t = 0 $ 和 $\omega_\sigma (\mathbf{k} )t = \frac{\pi}{2}  $  ，得 
+\begin{equation}
+    \begin{aligned} 
+        a^\dagger_{\mathbf{k}\sigma}
+        + b^\dagger_{\mathbf{k}\sigma}=
+        a_{\mathbf{k}\sigma}
+        + b_{\mathbf{k}\sigma} \\
+        a^\dagger_{\mathbf{k}\sigma}
+        - b^\dagger_{\mathbf{k}\sigma}=
+        -a_{\mathbf{k}\sigma}
+        + b_{\mathbf{k}\sigma}
+    \end{aligned} 
+\end{equation}
+解得 
+\begin{equation}
+    \begin{aligned} 
+        b_{\mathbf{k}\sigma}  = a_{-\mathbf{k}\sigma}
+    \end{aligned} 
+\end{equation}
+于是$q_{\mathbf{k}\sigma}(t)$的表达式化简为
+\begin{equation}
+    \begin{aligned} 
+        q_{\mathbf{k}\sigma}(t) &= a_{\mathbf{k}\sigma}e^{-i\omega_\sigma (\mathbf{k} )t}
+        + a^\dagger_{-\mathbf{k}\sigma}e^{i\omega_\sigma (\mathbf{k} )t} \\
+            &= a_{\mathbf{k}\sigma} (t) + a^\dagger_{\mathbf{k}\sigma }(t)
+    \end{aligned} 
+\end{equation}
+其中$a_{\mathbf{k}\sigma} (t) = a_{\mathbf{k}\sigma}e^{-i\omega_\sigma (\mathbf{k} )t}$。
+同理$ p_{\mathbf{k}\sigma}(t)$的表达式
+\begin{equation}
+    \begin{aligned} 
+        p_{\mathbf{k}\sigma}(t) &= \frac{d}{dt} q_{\mathbf{k}\sigma}
+        &= -i\omega_{\sigma}(\mathbf{k} )[a_{\mathbf{k}\sigma} (t) - a^\dagger_{\mathbf{k}\sigma }(t)]
+    \end{aligned} 
+\end{equation}
+联立上面两式，我们得到
+\begin{equation}
+    \begin{aligned} 
+        a_{\mathbf{k}\sigma} (t) = \frac{1}{2}[ q_{\mathbf{k}\sigma}(t) + i\frac{1}{\omega_\sigma (\mathbf{k} )}
+        p_{\mathbf{k}\sigma}(t)] \\ 
+        a^\dagger_{\mathbf{k}\sigma} (t) = \frac{1}{2}[ q_{\mathbf{k}\sigma}(t) - i\frac{1}{\omega_\sigma (\mathbf{k} )}
+        p_{\mathbf{k}\sigma}(t)] 
+    \end{aligned} 
+\end{equation}
+由于分母出现了$\omega_\sigma (\mathbf{k} )$，以上变换只对 $ \omega_{\mathbf{k}\sigma } = \sqrt{\lambda_{\mathbf{k}\sigma }} >0 $
+的情况适用。因此将系统哈密顿量分为两部分
+\begin{equation}
+    \begin{aligned} 
+    H &= H_0 + H_1 \\
+     &= \sum_{\mathbf{k}_0,\sigma }p^\dagger_{\mathbf{k}_0\sigma }p_{\mathbf{k}_0\sigma } 
+     + \frac{1}{2}\sum_{\mathbf{k,\sigma }'} (\lambda_{\mathbf{k}\sigma }q_{\mathbf{k}\sigma }^\dagger q_{\mathbf{k}\sigma })
+    \end{aligned} 
+\end{equation} 
+将之前的变换带入 $ H_1 $，得到
+\begin{equation}
+    \begin{aligned} 
+    H_1 &= \frac{1}{2}\sum_{\mathbf{k},\sigma }' (p^\dagger_{\mathbf{k}\sigma }p_{\mathbf{k}\sigma }+\lambda_{\mathbf{k}\sigma }q_{\mathbf{k}\sigma }^\dagger q_{\mathbf{k}\sigma })\\
+        &= \frac{1}{2}\sum_{\mathbf{k},\sigma}' [ - \omega_\sigma^2 (\mathbf{k})(a_{\mathbf{k}\sigma} - a^\dagger_{\mathbf{k}\sigma })(a_{\mathbf{k}\sigma} - a^\dagger_{\mathbf{k}\sigma })
+        + \lambda_{\mathbf{k}\sigma } (a_{\mathbf{k}\sigma}  + a^\dagger_{\mathbf{k}\sigma })(a_{\mathbf{k}\sigma}  + a^\dagger_{\mathbf{k}\sigma })] \\
+        & = \sum_{\mathbf{k},\sigma} \omega_\sigma^2(\mathbf{k} ) (a_{\mathbf{k}\sigma }a^\dagger_{\mathbf{k}\sigma } + a^\dagger_{\mathbf{k}\sigma } a_{\mathbf{k}\sigma })
+    \end{aligned} 
+\end{equation} 
+如果我们令
+\begin{equation}
+    \begin{aligned} 
+    b_{\mathbf{k}\sigma } = \sqrt{\frac{2\omega_\sigma(\mathbf{k} )}{\hbar}} a_{\mathbf{k}\sigma }
+    \end{aligned} 
+\end{equation}
+这里我是不太严谨的，因为之前令 $ i\hbar =1$现在又加了个东西进来。所以推导还是有一些问题的.
+并且我们可以算得对易关系
+\begin{equation}
+    \begin{aligned} 
+    \relax [b_{\mathbf{k}\sigma },b^\dagger_{\mathbf{k'}\sigma '}] = \delta_{\mathbf{kk'} }\delta_{\sigma \sigma'}
+    \end{aligned} 
+\end{equation}
+最后我们可以得到
+\begin{equation}
+    \begin{aligned} 
+    H_1 &= \frac{1}{2}\sum_{\mathbf{k},\sigma} \hbar \omega_\sigma(\mathbf{k} ) (b^\dagger_{\mathbf{k}\sigma }b_{\mathbf{k}\sigma } 
+    + b_{\mathbf{k}\sigma }b^\dagger_{\mathbf{k}\sigma }) \\
+    &=\sum_{\mathbf{k},\sigma} [\frac{1}{2} \hbar \omega_\sigma (\mathbf{k} ) + \hbar \omega_\sigma b^\dagger_{\mathbf{k}\sigma }b_{\mathbf{k}\sigma }]
+    \end{aligned} 
+\end{equation}
+综上所述，系统哈密顿量
+\begin{equation}
+    \begin{aligned} 
+    H = \sum_{\mathbf{k}_0,\sigma }p^\dagger_{\mathbf{k}_0\sigma }p_{\mathbf{k}_0\sigma } + 
+    \sum_{\mathbf{k},\sigma}' [ \hbar \omega_\sigma b^\dagger_{\mathbf{k}\sigma }b_{\mathbf{k}\sigma } +\frac{1}{2} \hbar \omega_\sigma (\mathbf{k} )]
+    \end{aligned} 
+\end{equation}
+其中，等式右边第一项包含满足 $\omega_\sigma (\mathbf{k} ) = 0$的那些模式，第二项则包含 $\omega_\sigma (\mathbf{k} ) >0$的
+那些模式。右边括号中的第二项是声场的零点振动能。但第一项不怎么关心，通常都是不写的，如果想要了解可以参考老师的笔记。忽略
+第一项后
+\begin{equation}
+    \begin{aligned} 
+        H = 
+        \sum_{\mathbf{k},\sigma} [ \hbar \omega_\sigma b^\dagger_{\mathbf{k}\sigma }b_{\mathbf{k}\sigma } +\frac{1}{2} \hbar \omega_\sigma (\mathbf{k} )]
+    \end{aligned} 
+\end{equation}
+通常称声场的场量子为声子， $b^\dagger_{\mathbf{k}\sigma }$和 $ b_{\mathbf{k}\sigma } $ 分别是声子的产生与湮灭
+算子。由于声子的产生与湮灭算子满足 $[b_{\mathbf{k}\sigma },b^\dagger_{\mathbf{k'}\sigma '}] = \delta_{\mathbf{kk'} }\delta_{\sigma \sigma'}
+$，声子属于玻色子。
+
+\section{声子气体的热性质}
+声子是玻色子，符合玻色统计，其统计密度为
+\begin{equation}
+    \begin{aligned} 
+    \rho (H) = \frac{e^{-\beta H }}{ Tr (e^{-\beta H})}
+    \end{aligned} 
+\end{equation}
+系统的内能为
+\begin{equation}
+    \begin{aligned} 
+    U = \langle H \rangle = \sum_{\mathbf{k},\sigma}( \hbar \omega_\sigma (\mathbf{k} )\langle b^\dagger_{\mathbf{k}\sigma }b_{\mathbf{k}\sigma }\rangle +\frac{1}{2} \hbar \omega_\sigma (\mathbf{k} ))
+    \end{aligned} 
+\end{equation}
+其中，
+\begin{equation}
+    \begin{aligned} 
+        \langle b^\dagger_{\mathbf{k}\sigma }b_{\mathbf{k}\sigma }\rangle &=  Tr(b^\dagger_{\mathbf{k}\sigma }b_{\mathbf{k}\sigma } \rho(H)) \\
+        &= \frac{1}{e^{\beta \hbar \omega_\sigma (\mathbf{k} )}-1}
+    \end{aligned} 
+\end{equation}
+因此，内能为
+\begin{equation}
+    \begin{aligned} 
+    U = \sum_{\mathbf{k},\sigma} \left( \frac{\hbar \omega_\sigma(\mathbf{k} )}{e^{\beta \hbar \omega_\sigma (\mathbf{k} )}-1}
+    +  +\frac{1}{2} \hbar \omega_\sigma (\mathbf{k} ) \right)
+    \end{aligned} 
+\end{equation}
+内能求出来了，就可以求比热。然后再复习一下Einstein模型和Debye模型，不过现在懒得弄了。
+\section{长波方法---声学模}
+\par 插播一个定义,如果 $\mathbf{k}= 0$，此时有
+$\oemga_\sigma = 0$，那么，相应的声子频带称为声频支，相应的格波称为声学模；反之，如果 $\mathbf{k}= 0$时,
+$\oemga_\sigma > 0$，相应的声子频带称为光频支，相应的格波称为光学模。
+\par 我们现在考虑极低温情况，此时 $\omega (\mathbf{k}  \approx 0)$。现在不太想学，如果考试需要那就学一下
+\section{长波方法---光学模}
+要用到黄昆方程，如果考试需要，学一下吧
+\section{态密度与范霍夫奇点}

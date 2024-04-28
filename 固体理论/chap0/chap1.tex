@@ -1,0 +1,618 @@
+\chapter{周期性结构}
+\section{正空间和倒空间}
+\subsection{仿射坐标系}
+在空间中任取一原点O以及任意三个不共面的矢量$\boldsymbol{e}_1,\boldsymbol{e}_2,\boldsymbol{e}_3$，则可以构建一个空间仿射坐标系$\{O;\boldsymbol{e}_1,\boldsymbol{e}_2,\boldsymbol{e}_3\}$。空间任一矢量$\boldsymbol{a}$可以表示为：
+\begin{equation}
+    \boldsymbol{a} = a_1 \boldsymbol{e}_1 + a_2 \boldsymbol{e}_2 + a_3 \boldsymbol{e}_3 =a^i \boldsymbol{e}_i,
+\end{equation}
+其中，$a_1,a_2,a_3$称为空间仿射坐标。等式最右边则是用爱因斯坦求和约定的简洁形式。对于其他维度也类似，但考虑到实际问题，以下没有特殊说明，只考虑三维情况。
+\subsection{欧式空间与度量系数}
+对仿射空间赋予内积后，则称为欧式空间。即欧式空间是特殊的仿射空间。设$\boldsymbol{a},\boldsymbol{b}$是欧式空间的两个矢量，定义两者内积：
+\begin{equation}
+    \boldsymbol{a}\cdot \boldsymbol{b} = (a^i \boldsymbol{e}_i)\cdot (b^j \boldsymbol{e}_j) = 
+    a^ib^j (\boldsymbol{e}_i \cdot \boldsymbol{e}_j) = g_{ij}a^ib^j,
+\end{equation}
+其中$g_{ij} = \boldsymbol{e}_i \cdot \boldsymbol{e}_j$称为欧式空间的度量系数。
+\par 由于$\boldsymbol{a}\cdot \boldsymbol{b}  = \boldsymbol{b}\cdot \boldsymbol{a}$，容易验证度量系数有如下关系：
+\begin{equation}
+    g_{ji} = g_{ij}
+\end{equation}
+记度量系数$g_{ij}$构成的矩阵为g(我们称之为度量矩阵)，则g为实对称矩阵，即
+\begin{equation}
+    \tilde{g} = g,
+\end{equation}
+其中$\tilde{g}$表示g的转置。
+\par 有了内积的定义和度量系数后，我们来进行一些矢量的计算。首先考虑矢量$\boldsymbol{a}$与自身的点积：
+\begin{equation}
+    \boldsymbol{a^2} :=\boldsymbol{a}\cdot \boldsymbol{a} = g_{ij}a^i a^j,
+\end{equation}
+写成矩阵形式
+\begin{equation}
+    \boldsymbol{a}^2 = \left( 
+    \begin{array}{ccc}
+        a^1 & a^2 & a^3
+    \end{array}\right)
+    \left(\begin{array}{ccc}
+         g_{11}&g_{12} &g_{13} \\
+         g_{21}&g_{22} &g_{23} \\
+         g_{31}&g_{32} &g_{33} \\
+    \end{array}\right)
+    \left(
+    \begin{array}{c}
+         a^1  \\
+         a^2 \\
+         a^3
+    \end{array}\right)
+\end{equation}
+由于g是实对称矩阵，可以证明$\boldsymbol{a}^2 \ge 0$。
+\par 现在我们考虑欧式空间三个基底$\boldsymbol{e}_1 ,\boldsymbol{e_2},\boldsymbol{e_3}$的混合积。任取一个笛卡尔坐标系，设其基矢为$\boldsymbol{i},\boldsymbol{j},\boldsymbol{k}$。设欧式空间三个基矢在笛卡尔坐标表示如下:
+\begin{equation}
+\begin{aligned}
+        \boldsymbol{e}_1 = x_1 \boldsymbol{i} + y_1 \boldsymbol{j} + z_1 \boldsymbol{k} \\
+    \boldsymbol{e}_2 = x_2 \boldsymbol{i} + y_2 \boldsymbol{j} + z_2 \boldsymbol{k} \\
+    \boldsymbol{e}_3 = x_3 \boldsymbol{i} + y_3 \boldsymbol{j} + z_3 \boldsymbol{k} 
+\end{aligned}
+\end{equation}
+因此，混合积在可以写成：
+\begin{equation}
+    (\boldsymbol{e}_1 \times \boldsymbol{e}_2) \cdot \boldsymbol{e}_3 = \left| \begin{array}{ccc}
+        x_1 & y_1 & z_1  \\
+        x_2 & y_2 & z_2  \\
+        x_3 & y_3 & z_3
+    \end{array}\right| = \left| \begin{array}{ccc}
+        x_1 & x_2 & x_3  \\
+        y_1 & y_2 & y_3  \\
+        z_1 & z_2 & z_3
+    \end{array}\right|
+\end{equation}
+于是，混合积平方：
+\begin{equation}
+    \begin{aligned}
+        \relax[(\mathbf{e}_1 \times \mathbf{e}_2 ) \cdot \mathbf{e}_3]^2 &= [(\mathbf{e}_1 \times \mathbf{e}_2 ) \cdot \mathbf{e}_3][(\mathbf{e}_1 \times \mathbf{e}_2 ) \cdot \mathbf{e}_3]\\
+            & = \left| \begin{array}{ccc}
+        x_1 & y_1 & z_1  \\
+        x_2 & y_2 & z_2  \\
+        x_3 & y_3 & z_3
+    \end{array}\right|\left| \begin{array}{ccc}
+        x_1 & x_2 & x_3  \\
+        y_1 & y_2 & y_3  \\
+        z_1 & z_2 & z_3
+    \end{array}\right|\\
+        &= \left| \left(\begin{array}{ccc}
+        x_1 & y_1 & z_1  \\
+        x_2 & y_2 & z_2  \\
+        x_3 & y_3 & z_3
+    \end{array} \right) \left(\begin{array}{ccc}
+        x_1 & x_2 & x_3  \\
+        y_1 & y_2 & y_3  \\
+        z_1 & z_2 & z_3
+    \end{array}\right)\right|
+    \end{aligned}
+\end{equation}
+由于
+\begin{equation}
+    \boldsymbol{e}_i\cdot \boldsymbol{e}_j = x_ix_j + y_iy_j + z_iz_j \quad i,j = 1,2,3
+\end{equation}
+所以
+\begin{equation}
+    \begin{aligned}
+        \left(\begin{array}{ccc}
+        x_1 & y_1 & z_1  \\
+        x_2 & y_2 & z_2  \\
+        x_3 & y_3 & z_3
+    \end{array} \right) \left(\begin{array}{ccc}
+        x_1 & x_2 & x_3  \\
+        y_1 & y_2 & y_3  \\
+        z_1 & z_2 & z_3
+    \end{array}\right) &= \left( \begin{array}{ccc}
+         \boldsymbol{e}_1 \cdot \boldsymbol{e}_1& \boldsymbol{e}_1 \cdot \boldsymbol{e}_2 & \boldsymbol{e}_1 \cdot \boldsymbol{e}_3 \\
+         \boldsymbol{e}_2 \cdot \boldsymbol{e}_1& \boldsymbol{e}_2 \cdot \boldsymbol{e}_2 & \boldsymbol{e}_2 \cdot \boldsymbol{e}_3 \\
+         \boldsymbol{e}_3 \cdot \boldsymbol{e}_1& \boldsymbol{e}_3 \cdot \boldsymbol{e}_2 & \boldsymbol{e}_3 \cdot \boldsymbol{e}_3 \\
+    \end{array}\right) \\
+   & = \left(\begin{array}{ccc}
+        g_{11} & g_{12} & g_{13}  \\
+         g_{21} & g_{22} & g_{23}  \\
+         g_{31} & g_{32} & g_{33}  \\
+    \end{array}\right) \\
+    & = g
+    \end{aligned}
+\end{equation}
+综上所述：
+\begin{align}
+    [(\boldsymbol{e}_1 \times \boldsymbol{e}_2 ) \cdot \boldsymbol{e}_3]^2 &= detg  \\
+    \Omega := (\boldsymbol{e}_1 \times \boldsymbol{e}_2 ) \cdot \boldsymbol{e}_3 &= \sqrt{det g}
+\end{align}
+其中$\Omega$定义如上，是基底$\{\boldsymbol{e}_1,\boldsymbol{e}_2,\boldsymbol{e}_3\}$生成的平行六面体的体积。
+\subsection{倒易基底}
+由于$det g>0$，度量矩阵g有逆。记$g^{-1}$的元素为$g^{ij}$：
+\begin{equation}
+    g^{-1} = \left( \begin{array}{ccc}
+         g^{11} & g^{12} & g^{13}  \\
+         g^{21} & g^{22} & g^{23}  \\
+         g^{31} & g^{32} & g^{33}  \\
+    \end{array}\right)
+\end{equation}
+有逆矩阵的定义：
+\begin{equation}
+    g^{-1} g = gg^{-1} = I
+\end{equation}
+其中$I$是单位矩阵，有：
+\begin{equation}
+    g^{ij} g_{jk} = g_{ij} g^{jk} = \delta_{ik}
+\end{equation}
+其中:
+\begin{equation}
+    \delta_{ik} = \left\{ \begin{array}{rl}
+         1, & \text{if } i=j  \\
+         0, & \text{if } i\neq j
+    \end{array}\right.
+\end{equation}
+
+\par 利用$g^{-1}$，我们定义倒易基矢$\boldsymbol{e}^i$:
+\begin{equation}
+    \boldsymbol{e}^{i} := g^{ij}\boldsymbol{e}_j\qquad i = 1,2,3.
+\end{equation}
+写成矩阵形式就是:
+\begin{equation}
+\begin{aligned}
+        \left(
+    \begin{array}{c}
+         \boldsymbol{e}^1  \\
+         \boldsymbol{e}^2  \\
+         \boldsymbol{e}^3  \\
+    \end{array}\right) &= g^{-1}  \left(
+    \begin{array}{c}
+         \boldsymbol{e}_1  \\
+         \boldsymbol{e}_2  \\
+         \boldsymbol{e}_3  \\
+    \end{array}\right)\\
+    & = \left( \begin{array}{ccc}
+         g^{11} & g^{12} & g^{13}  \\
+         g^{21} & g^{22} & g^{23}  \\
+         g^{31} & g^{32} & g^{33}  \\
+    \end{array}\right)\left(
+    \begin{array}{c}
+         \boldsymbol{e}_1  \\
+         \boldsymbol{e}_2  \\
+         \boldsymbol{e}_3  \\
+    \end{array}\right)
+\end{aligned}
+\end{equation}
+
+等式两边同时乘以$g$，有
+\begin{equation}
+    \begin{aligned}
+     \left(
+    \begin{array}{c}
+         \boldsymbol{e}_1  \\
+         \boldsymbol{e}_2  \\
+         \boldsymbol{e}_3  \\
+    \end{array}\right) = g\left(
+    \begin{array}{c}
+         \boldsymbol{e}^1  \\
+         \boldsymbol{e}^2  \\
+         \boldsymbol{e}^3  \\
+    \end{array}\right) 
+    \end{aligned}
+\end{equation}
+或者可以写成
+\begin{equation}
+    \boldsymbol{e}_i = g_{ij} \boldsymbol{e}^j
+\end{equation}
+我们称有倒易基矢构成的基底$\{\boldsymbol{e}^1,\boldsymbol{e}^2,\boldsymbol{e}^3\}$为倒易基底。
+\par 现在我们来看一下倒易基矢的性质。首先是倒易基矢乘以正基矢的情况：
+\begin{equation}
+    \begin{aligned}
+        \boldsymbol{e}^i \cdot \boldsymbol{e}_j = (g^{ik}\boldsymbol{e}_k)\cdot \boldsymbol{e}_j = g^{ik} (\boldsymbol{e}_k \cdot \boldsymbol{e}_j) = g^{ik}g_{kj} = \delta_{ij}
+    \end{aligned}
+\end{equation}
+然后是倒易基矢之间的乘积：
+\begin{equation}
+\begin{aligned}
+    \boldsymbol{e}^i\cdot \boldsymbol{e}^j &= (g^{ik}\boldsymbol{e}_k)\cdot (g^{jl}\boldsymbol{e}_l) = g^{ik}g^{jl}(\boldsymbol{e}_k \cdot \boldsymbol{e}_l) \\
+    &= g^{ik}g^{jl}g_{kl} = g^{ik}g^{jl}g_{lk} =g6{ik}\delta_{jk} =g^{ij}
+\end{aligned}
+\end{equation}
+\par 类似与正基底，倒易基底$\{\boldsymbol{e}^1,\boldsymbol{e}^2,\boldsymbol{e}^3\}$所生成的平行六面体的体积$\Omega^*$为：
+\begin{equation}
+    \Omega^* := (\boldsymbol{e}^1 \times \boldsymbol{e}^2)\cdot \boldsymbol{e}^3 = \sqrt{detg^-1} = \frac{1}{\sqrt{det g}} = \frac{1}{\Omega}
+\end{equation}
+所以$\Omega^*$和$\Omega$满足如下关系：
+\begin{equation}
+    \Omega^* \Omega = 1
+\end{equation}
+\par 下面我们再来具体讨论一下正、倒基矢的关系。由$\boldsymbol{e}^i \cdot \boldsymbol{e}_j = \delta_{ij}$
+，有：
+\begin{equation}
+    \boldsymbol{e}^1\perp \boldsymbol{e}_2, \quad \boldsymbol{e}^1 \perp \boldsymbol{e}^3
+\end{equation}
+因此，
+\begin{equation}
+    \boldsymbol{e}^1 \parallel \boldsymbol{e}_2 \times \boldsymbol{e}_3
+\end{equation}
+于是，
+\begin{equation}
+    \boldsymbol{e}^1 = \lambda \boldsymbol{e}_2 \times \boldsymbol{e}_3
+\end{equation}
+利用$\boldsymbol{e}_1 \boldsymbol{e}^1 = $可以确定系数$\lambda$。这里我直接给出结果：
+\begin{equation}
+    \boldsymbol{e}^1 = \frac{1}{\Omega}\boldsymbol{e}_2 \times \boldsymbol{e}_3.
+\end{equation}
+同理
+\begin{align}
+    \boldsymbol{e}^2 = \frac{1}{\Omega}\boldsymbol{e}_3 \times \boldsymbol{e}_1,\\
+    \boldsymbol{e}^3 = \frac{1}{\Omega}\boldsymbol{e}_1 \times \boldsymbol{e}_2
+\end{align}
+反之
+\begin{align}
+    \boldsymbol{e}_1 = \frac{1}{\Omega^*}\boldsymbol{e}^2 \times \boldsymbol{e}^3 ,\\
+    \boldsymbol{e}_2 = \frac{1}{\Omega^*}\boldsymbol{e}^3 \times \boldsymbol{e}^1 ,\\
+    \boldsymbol{e}_3 = \frac{1}{\Omega^*}\boldsymbol{e}^1 \times \boldsymbol{e}^2 ,
+\end{align}
+\subsection{逆变矢量与协变矢量}
+有了正、倒基底，就可以搞点骚东西。对于两个矢量点积，我们可以将一个矢量用正基底展开，另外一个基底用倒基底展开
+\begin{equation}
+\begin{aligned}
+        \mathbf{a}\cdot \mathbf{b} &= (a^i\mathbf{{e}_i})\cdot (b_j \mathbf{e}^j) = a^ib_j (\mathbf{e}_i \cdot \mathbf{e}^j) = a^i b_j \delta_{ij} = a^i b_i\\
+    \mathbf{a}\cdot \mathbf{b} &= (a_i \mathbf{e}^i)\cdot (b^j\mathbf{e}_j) = a_i b^j(\mathbf{e}^i \cdot \mathbf{e}_j) = a_i b^j \delta_{ij} =a_i b^j
+\end{aligned}
+\end{equation}
+我们习惯将第一种称为逆变形式，第二种称为协变形式。这样子我们可以把一个如下形式的求和：
+\begin{equation}
+    \sum_{i =1}^3 = x_i y_i = x_1y_1 + x_2 y_2 + x_3 y_3.
+\end{equation}
+看成欧式空间两个矢量$\mathbf{a}$和$\mathbf{b}$的点积，其中一个是正矢量，另一个是倒矢量。即
+\begin{equation}
+    \sum_{i = 1}^3x_iy_i = \mathbf{a}\cdot \mathbf{b},
+\end{equation}
+这里我们取
+\begin{equation}
+    a^i = x_i, \quad b_i =y_i,\qquad i = 1,2,3
+\end{equation}
+\section{正格矢与倒格矢}
+假设我们为晶体建立了一个仿射坐标系$\{O; \mathbf{a}_1,\mathbf{a}_3,\mathbf{a}_3\}$。然后我们可以引入一个倒易基底$\{\mathbf{a}^1,\mathbf{a}^2,\mathbf{a}^3\}$。然而，在固体理论中，波矢与位矢的点乘很重要。这个点乘显然是一个位相，有自然的周期$2\pi$，因此为了方便期间，我们约定倒易基底$\{\mathbf{b}_1,\mathbf{b}_2,\mathbf{b}_3\}$如下，
+\begin{equation}
+    \mathbf{b}_i = 2\pi \mathbf{a}^i, \quad i = 1,2,3.
+\end{equation}
+根据上一节的内容，我们可以得到如下关系：
+\begin{equation}
+\begin{aligned}
+        \mathbf{b}_1 = \frac{2\pi}{\Omega}\mathbf{a}_2 \times \mathbf{a}_3,\\
+    \mathbf{b}_2 = \frac{2\pi}{\Omega}\mathbf{a}_3 \times \mathbf{a}_1,\\
+    \mathbf{b}_3 = \frac{2\pi}{\Omega}\mathbf{a}_1 \times \mathbf{a}_2,
+\end{aligned}
+\end{equation}
+其中，$\Omega$为正元胞的体积：
+\begin{equation}
+    \Omega = \mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3).
+\end{equation}
+在此约定下，定义正倒格矢分别为：
+\begin{align}
+    \mathbf{R}_l = l_1 \mathbf{a}_1 + l_2 \mathbf{a}_2 + l_3 \mathbf{a}_3,\quad l_1,l_2,l_3 \in \mathbb{Z}  \\
+    \mathbf{K}_n = n_1 \mathbf{b}_1 + n_2 \mathbf{b}_2 n_3 \mathbf{b}_3, \quad n_1,n_2,n_3 \in \mathbb{Z},
+\end{align}
+以及$\Omega$和$\Omega^*$满足：
+\begin{equation}
+    \Omega\Omega^* = (2\pi)^3
+\end{equation}
+其中，$\Omega^*$为倒元胞的体积
+\begin{equation}
+    \Omega^* = \mathbf{b}_1 \cdot (\mathbf{b}_2\times \mathbf{b}_3).
+\end{equation}
+然后就是这样规定下的正、倒基矢满足
+\begin{equation}
+    \mathbf{b}_i \cdot \mathbf{a}_j = 2\pi \delta_{ij}, \quad i,j = 1,2,3,
+\end{equation}
+利用这个关系可以得到
+\begin{equation}
+    \mathbf{K}_n \cdot \mathbf{R}_l = 2\pi\sum_{i =1 }^3n_i l_i = 2\pi m, \quad m \in \mathbb{Z}
+\end{equation}
+在物理上，人们一般将波矢放在倒空间，为倒矢量；将位矢安置在正空间，为正矢量。也就是说，上面的东西在物理上就写为：
+
+\begin{align}
+        \mathbf{k} = k_1 \mathbf{b}_1 + k_2 \mathbf{b}_2 + k_3 \mathbf{b}_3 \\
+        \mathbf{r} = x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + x_3 \mathbf{a}_3
+\end{align}
+于是有
+\begin{equation}
+    \mathbf{k}\cdot \mathbf{r} = \sum_{i = 1}^3 \sum_{j=1}^3 k_ix_j \mathbf{b}_i \cdot \mathbf{a}_j = \sum_{i = 1}^3 \sum_{j=1}^3k_ix_j 2\pi \delta_{ij} = 2\pi \sum_{i=1}^3 k_i x_i.
+\end{equation}
+
+\section{平移对称性}
+假设我们有正格矢
+\begin{equation}
+    \mathbf{R}_l = l_1 \mathbf{a}_1 + l_2 \mathbf{a}_2 + l_3 \mathbf{a}_3,\quad l_1,l_2,l_3 \in \mathbb{Z} 
+\end{equation}
+为了方便，我们记平移操作$\mathbf{r}' = \mathbf{r} + \mathbf{R}_l$为
+\begin{equation}
+    \{E|\mathbf{R}_l\}
+\end{equation}
+其中记号中的$E$表示点变换的矩阵为单位矩阵。由所有这样的平移操作所构成的集合，我们记为$G_l$。
+\begin{equation}
+    G_l \equiv \{ \{E|\mathbf{R}_l\}| \mathbf{R}_l = l_1 \mathbf{a}_1 + l_2 \mathbf{a}_2 + l_3 \mathbf{a}_3,\quad l_1,l_2,l_3 \in \mathbb{Z}  \}
+\end{equation}
+可以验证，$G_l$是一个阿贝尔群。这里我就不证明了。
+\par 现在我们来，考虑周期边界条件的影响。考虑如下周期边界条件：
+\begin{align}
+    \{E|\mathbf{R}_l\} \equiv \{E|\mathbf{R}_l + N_1 \mathbf{a}_1\},\\
+    \{E|\mathbf{R}_l\} \equiv \{E|\mathbf{R}_l + N_2 \mathbf{a}_2\},\\
+    \{E|\mathbf{R}_l\} \equiv \{E|\mathbf{R}_l + N_3 \mathbf{a}_3\},\\
+\end{align}
+在这样的周期边界条件下，系统的独立平移操作有只有$N = N_1N_2N_3$个。我们称所有独立操作构成的群为晶体平移群
+\begin{equation}
+    G_t = \{ \{E|\mathbf{R}_l\}| \mathbf{R}_l = l_1 \mathbf{a}_1 + l_2 \mathbf{a}_2 + l_3 \mathbf{a}_3,\quad 0\leq l_1<N_1,0\leq l_2 <N_2, 0\leq l_3<N_3  \}
+\end{equation}
+可以验证$G_t$仍然是一个阿贝尔群。(毕竟是$G_l$的子群嘛)
+\subsection{晶体的平移对称性}
+我们记平移变换操作为$\sigma$，设变换前函数为$f(p)$，变换后的函数为$g(p)$。
+由之前学的群论知识，有
+\begin{equation}
+    g(p) = f(\sigma^{-1}(p)) 
+\end{equation}
+又有
+\begin{equation}
+    g =\sigma(f) = \sigma f
+\end{equation}
+联立上面两个等式有
+\begin{equation}
+\begin{aligned}
+        (\sigma f) (p) = f(\sigma^{-1}(p))  \\
+        \sigma f(p) = f(\sigma^{-1}p).
+\end{aligned}
+\end{equation}
+等式左边的$\sigma$作用在函数上，而右边的$\sigma$作用在空间点上。具体怎么推我忘记了，但群论中有证明，一个是函数空间，另外一个是群空间。不管了，现在直接用。
+\par 我们任取一个仿射坐标，设点$p$的坐标为$\mathbf{r}$，则
+\begin{equation}
+    \sigma f(\mathbf{r}) = f(\sigma^{-1} \mathbf{r})
+\end{equation}
+如果我们取$\sigma = \{E| \mathbf{R}_l \in G_t\}$,则
+\begin{equation}
+    \{E| \mathbf{R}_l\} f(\mathbf{r}) = f( \{E| \mathbf{R}_l\}^{-1} \mathbf{r})
+\end{equation}
+\par 由晶体平移对称性：
+\begin{equation}
+[g,H] = 0   \qquad \forall g \in G_t
+\end{equation}
+
+这个也可以证明，参见肖明文老师的笔记。
+\section{Bloch定理}
+我们记平移群的乘法为
+\begin{equation}
+    \{E| \mathbf{R}_l\} \{E| \mathbf{R}_{l'}\} = \{E| \mathbf{R}_l + \mathbf{R}_{l'}\}
+\end{equation}
+这样，平移群可以写为
+\begin{equation}
+    G_l = \{\{E|\mathbf{a}_1\}^{l_1}\{E|\mathbf{a}_2\}^{l_2}\{E|\mathbf{a}_3\}^{l_3} | l_1,l_2,l_3 \in \mathbb{Z}\}
+\end{equation}
+
+那么周期边界条件就记为
+\begin{equation}
+\begin{aligned}
+        \{E| \mathbf{R}_l\} = \{E| \mathbf{R}_l\}\{E| \mathbf{a}_1\}^{N_1}\\
+        \{E| \mathbf{R}_l\} = \{E| \mathbf{R}_l\}\{E| \mathbf{a}_2\}^{N_2}\\
+        \{E| \mathbf{R}_l\} = \{E| \mathbf{R}_l\}\{E| \mathbf{a}_3\}^{N_3}\\
+\end{aligned}
+\end{equation}
+现在我们考虑生成元
+\begin{equation}
+    \{E|\mathbf{a}_1\},\{E|\mathbf{a}_2\},\{E|\mathbf{a}_3\}
+\end{equation}
+由于平移群是阿贝尔群，以及$[g,H]=0$。所以你可以找到一个共同本征态$\psi(\mathbf{r})$满足
+\begin{equation}
+\begin{aligned}
+        \{E|\mathbf{a}_1\} \psi(\mathbf{r}_) = \lambda_1 \psi(\mathbf{r}) \\
+     \{E|\mathbf{a}_2\} \psi(\mathbf{r}_) = \lambda_2 \psi(\mathbf{r}) \\
+      \{E|\mathbf{a}_3\} \psi(\mathbf{r}_) = \lambda_3 \psi(\mathbf{r}) \\
+\end{aligned}
+\end{equation}
+其中$\lambda_1,\lambda_2,\lambda_3$是对应的本征值。那么对于平移群的任意一个元素，有
+\begin{equation}
+     \{E| \mathbf{R}_l\} = \{E|\mathbf{a}_1\}^{l_1}\{E|\mathbf{a}_2\}^{l_2}\{E|\mathbf{a}_3\}^{l_3} \psi(\mathbf{r}) = \lambda_1^{l_1}\lambda_2^{l_2}\lambda_3^{l_3}\psi(\mathbf{r})
+\end{equation}
+现在我们来考虑周期边界条件
+\begin{equation}
+\begin{aligned}
+    \{E|\mathbf{a}_1\}^{N_1}\psi(\mathbf{r}) &= \{E|0\}\psi(\mathbf{r})\\
+    \lambda_1^{N_1} \psi(\mathbf{r}) &= \psi(\mathbf{r})
+\end{aligned}
+\end{equation}
+解得
+\begin{equation}
+    \lambda_1 = e^{2\pi \frac{n_1}{N_1}}\quad  0\le n_1 < N_1
+\end{equation}
+对于$\lambda_2,\lambda_3$同理可以求解。联立这三个生成元的结果，可以知道它们一起共有$N =N_1N_2N_3$个本征值。每个本征值对应一个本征子空间，故它们将系统的Hilbert空间分成N个子空间。最后我们得到
+\begin{align}
+    \{E|\mathbf{a}_1\}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) = e^{-i2\pi 
+    \frac{n_1}{N_1}}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) \\
+    \{E|\mathbf{a}_2\}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) = e^{-i2\pi 
+    \frac{n_2}{N_2}}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) \\
+    \{E|\mathbf{a}_3\}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) = e^{-i2\pi 
+    \frac{n_3}{N_3}}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) \\
+\end{align}
+
+这里，波函数
+\begin{equation}
+    \psi_{(n_1,n_2,n_3)}(\mathbf{r})
+\end{equation}
+是本征子空间$(n_1,n_2,n_3)$中的任意一个态矢量。$(n_1,n_2,n_3)$是量子数。
+\par 利用上述结果，任意一个平移算符作用倒本征态上，有
+\begin{equation}
+    \{E|\mathbf{R}_l\}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) = exp\left(
+    -i2\pi \sum_{\nu = 1}^3 \frac{n_\nu}{N_\nu}l_\nu\right)\psi_{(n_1,n_2,n_3)}(\mathbf{r})
+    \label{1.1}
+\end{equation}
+如果我们记正格矢,倒格矢分别为
+\begin{align}
+    \mathbf{R}_l &= \sum_{\nu =1 }^3 l_\nu \mathbf{a}_\nu \\
+    \mathbf{k} &= \sum_{\nu = 1}^3 \frac{n_{\nu}}{N_\nu}\mathbf{b}_\nu
+\end{align}
+那么有
+\begin{equation}
+    2\pi \sum_{\nu = 1}^3 \frac{n_\nu}{N_\nu}l_\nu = \mathbf{k}\cdot \mathbf{R}_l
+\end{equation}
+则式(\ref{1.1})就可以写成
+\begin{equation}
+    \{E|\mathbf{R}_l\}\psi_{(n_1,n_2,n_3)}(\mathbf{r}) = e^{-i\mathbf{k}\cdot \mathbf{R}_l}\psi_{(n_1,n_2,n_3)}(\mathbf{r})
+\end{equation}
+这样，平移算子的第$\mathbf{k}$个本征值便为
+\begin{equation}
+    e^{-i\mathbf{k}\cdot \mathbf{R}_l}
+\end{equation}
+而波函数
+\begin{equation}
+    \psi (\mathbf{r})
+\end{equation}
+则是第$\mathbf{k}$个本征子空间的任一态矢量。
+\par 注意到
+\begin{equation}
+\begin{aligned}
+        \{E|\mathrm{R}_l\}\psi_\mathbf{k}(\mathbf{r}) = \psi_\mathbf{k}(\mathbf{r} - \mathbf{R}_l)
+\end{aligned}
+\end{equation}
+则有
+\begin{equation}
+    \begin{aligned}
+         \psi_\mathbf{k} (\mathbf{k + \mathbf{R}_l}) = e^{i\mathbf{k}\cdot \mathbf{R}_l}\psi_\mathbf{k}(\mathbf{r}) \\
+         \psi_\mathbf{k}(\mathbf{r})e^{-i\mathbf{k}\cdot \mathbf{r}} = \psi_\mathbf{k} (\mathbf{k + \mathbf{R}_l}) e^{-i\mathbf{k}\cdot (\mathbf{r}+ \mathbf{R}_l)}
+    \end{aligned}
+\end{equation}
+这就是Bloch定理。
+如果令
+\begin{equation}
+    u_\mathbf{k}(\mathbf{r}) = \psi_\mathbf{k}(\mathbf{r}) e^{-i\mathbf{k}\cdot \mathbf{r}}
+\end{equation}
+则
+\begin{equation}
+    u_\mathbf{k}(\mathbf{r}) = u_\mathbf{k}(\mathbf{r}+ \mathbf{R}_l)
+\end{equation}
+\par 从晶体的倒空间来看，平移算子群$G_t$的全部量子数$\mathbf{k}$只占据以原点为中心的一个平行六面体
+\begin{equation}
+    \mathbf{k} = \sum_{\nu = 1}^3 \frac{n_\nu}{N_\nu}\mathbf{b}_\nu,\quad -\left[\frac{N_\nu}{2}\right] \le n_\nu < \left[\frac{N_\nu}{2}\right]
+\end{equation}
+通常称该平行六面体为第一布里渊区简称$BZ$。
+BZ之外的任意一个波矢$\mathbf{k}'$总可以写成
+\begin{equation}
+    \mathbf{k}' =\mathbf{k} + \mathbf{K}_n
+\end{equation}
+其中，$\mathbf{k} \in BZ$，而$\mathbf{K}_n$则是某一倒格矢
+\begin{equation}
+    \mathbf{K}_n = \sum_\nu n_\nu b \quad n_\nu in \mathbb{Z}
+\end{equation}
+\par 值得指出，对于平移群的全部本征值构成的集合
+\begin{equation}
+    \{e^{i\mathbf{k}\cdot \mathbf{R}_l}| \mathbf{k} \in BZ, 0 \le l_\nu < N_\nu, \nu = 1,2,3\}
+\end{equation}
+有两条性质
+\begin{align}
+    \frac{1}{N}\sum_{\mathbf{R}_l} e^{i(\mathbf{k}- \mathbf{k'})\cdot \mathbf{R}_l} &= \delta_{\mathbf{kk}'},\\
+    \frac{1}{N}\sum_{\mathbf{R}_l} e^{i\mathbf{k}\cdot (\mathbf{R}_l - \mathbf{R}_l')} &= \delta_{\mathbf{R}_l\mathbf{R}_{l'}},
+\end{align}
+\subsection{求本征方程}
+\par 对于第$\mathbf{k}$个子空间，波矢
+\begin{equation}
+    \psi_\mathbf{k} (\mathbf{r}) = u_\mathbf{k}(\mathbf{r}) e^{i\mathbf{k}\cdot \mathbf{r}}
+\end{equation}
+本征方程
+\begin{equation}
+    H\psi_\mathbf{k} (\mathbf{r}) = E(\mathbf{k}) \psi_\mathbf{k} (\mathbf{r})
+\end{equation}
+哈密顿算符
+\begin{equation}
+    H =- \frac{\hbar^2}{2m}\nabla^2 + U(\mathbf{r})
+\end{equation}
+利用矢量分析公式可得
+\begin{equation}
+    [- \frac{\hbar^2}{2m}\nabla^2  - \frac{i\hbar^2}{m}\mathbf{k}\cdot \nabla + \frac{\hbar^2 \mathbf{k}^2}{2m}+ U(\mathbf{r})]u_\mathbf{k}(\mathbf{r}) =E(\mathbf{k}) u_\mathbf{k}(\mathbf{r})  
+\end{equation}
+如果令
+\begin{equation}
+\begin{aligned}
+        H_\mathbf{k}\equiv- \frac{\hbar^2}{2m}\nabla^2  - \frac{i\hbar^2}{m}\mathbf{k}\cdot \nabla + \frac{\hbar^2 \mathbf{k}^2}{2m}+ U(\mathbf{r}) &= H - \frac{\hbar^2}{2m}\nabla^2  - \frac{i\hbar^2}{m}\mathbf{k}\cdot \nabla \\
+        &= \frac{1}{2m}(\mathbf{p} + \hbar \mathbf{k})^2 + U(\mathbf{r})
+\end{aligned}
+\end{equation}
+
+则本征方程可以写为
+\begin{equation}
+    H_\mathbf{k}u_\mathbf{k}(\mathbf{r}) = E(\mathbf{k}) u_\mathbf{k}(\mathbf{r})
+\end{equation}
+其中$u_\mathbf{k}(\mathbf{r})$满足周期边界条件
+\begin{equation}
+    u_\mathbf{k}(\mathbf{r}) = u_\mathbf{k}(\mathbf{r} + \mathbf{R}_l)
+\end{equation}
+\section{Dirac Comb}
+现在我们来讨论一个简单的能带模型--Dirac Comb，其周期势为
+\begin{equation}
+    U(x) = \gamma \sum_{l = -\infty}^{+\infty}\delta(x + la), \quad \gamma >0,a>0,l\in \mathbf{Z},
+\end{equation}
+在区间$(-a,0)$的本征方程为
+\begin{equation}
+(-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} - \frac{i\hbar^2}{m}k \frac{d}{dx} + \frac{\hbar^2k^2}{2m}) u_k(x) = E(k)u_k(x) \quad x\in (-a,0)
+\end{equation}
+令$q = \sqrt{\frac{2m}{\hbar^2}E(k)}$，经过化简后方程变为
+\begin{equation}
+    (-\frac{d^2}{dx^2} - 2ik\frac{d}{dx} + k^2 - q^2)u_k(x) = 0
+\end{equation}
+这是一个常系数线性齐次微分方程，利用大学的微积分知识解得
+\begin{equation}
+    u_k(x) = Ae^{i(q-k)x} + Be^{-i(q_k)x}, \quad x\in (-a,0)
+\end{equation}
+利用周期边界条件$u_k(x+la) = u_k(x)$，我们可以得到在$(0,a)$的解
+\begin{equation}
+    u_k(x) = u_k(x-a) = Ae^{i(q-k)(x-a)} + Be^{-i(q_k)(x-a)}, \quad x\in (0,a)
+\end{equation}
+
+现在我们考虑交接点$x = 0$来确定待定系数。首先，函数$u_k(x)$在交接点连续
+\begin{equation}
+    u_k(x)|_{x=0-} = u_k(x)|_{x=0+}
+\end{equation}
+其次，对$(-a,a)$的本征方程
+\begin{equation}
+    [-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} - \frac{i\hbar^2}{m}k \frac{d}{dx} + \frac{\hbar^2k^2}{2m} + \gamma \delta(x)] u_k(x) = E(k)u_k(x)
+\end{equation}
+积分后可以得到
+\begin{equation}
+    u_k'(0+0 -u_k'(0-) = \frac{2m\gamma}{\hbar^2}u_k(0).
+\end{equation}
+\par 利用这两个边界条件后可以得到如下方程组
+\begin{align}
+    A + B &= Ae^{-i(q-k)a} + Be^{i(q+k)a} \\
+    i(q-k)Ae^{-i(q-k)a}&- i (q+k)Be^{i(q+k)a} - i(q-k)A + i(q+k)B = \frac{2m\gamma}{\hbar^2}(A+B)
+\end{align}
+后面的工作就是解这个方程组了。化简后得到
+\begin{align}
+    A + B = e^{ika}(A e^{-iqa} + Be^{iqa})  \\
+    (1 - 2\frac{i\kappa}{q})A - (1+ 2\frac{i\kappa}{q}) B = e^{ika}(Ae^{-iqa} - Be^{iqa})
+\end{align}
+其中$\kappa \equiv \frac{m\gamma}{\hbar}$。再进一步化简，可以写成如下的矩阵形式
+\begin{equation}
+    \left(\begin{array}{cc}
+        (1 + \frac{i\kappa}{q}) e^{-iqa} & \frac{i\kappa}{q}e^{iqa} \\
+        -\frac{i\kappa}{q} e^{-iqa} & (1 - \frac{i\kappa}{q})e^{iqa}
+    \end{array}\right)\left(\begin{array}{c}
+         A  \\
+         B 
+    \end{array}\right) = e^{-ika}\left(\begin{array}{c}
+         A  \\
+         B 
+    \end{array}\right)
+\end{equation}
+这就要考虑一个问题了。对于上面的这样一个矩阵，要考虑有解的条件，即
+\begin{equation}
+     \left|\begin{array}{cc}
+        (1 + \frac{i\kappa}{q}) e^{-iqa}-e^{-ika} & \frac{i\kappa}{q}e^{iqa} \\
+        -\frac{i\kappa}{q} e^{-iqa} & (1 - \frac{i\kappa}{q})e^{iqa}-e^{-ika}
+    \end{array}\right| = 0
+\end{equation}
+展开并化简后得到
+\begin{equation}
+    \begin{aligned}
+        cos(qa) + \frac{\kappa}{q}sin(qa) = cos(ka), \quad k\in BZ.
+    \end{aligned}
+    \label{1.2}
+\end{equation}
+设其第$n$个解为$q_n$，则由$q$的定义$q = \sqrt{\frac{2m}{\hbar^2}E(k)}$可以得到电子的第n个能级为
+\begin{equation}
+    E_n(k) = \frac{\hbar^2q_n^2}{2m}
+\end{equation}
+式(\ref{1.2})是一个关于$q$的超越方程，一般只能数值求解。
